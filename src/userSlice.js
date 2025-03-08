@@ -1,3 +1,6 @@
+import { fetchAddress } from "../utils/fetchAddress";
+import { formatCurrency } from "../../utils";
+
 function getPosition() {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
