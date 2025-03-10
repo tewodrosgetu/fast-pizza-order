@@ -7,7 +7,7 @@ function AppLayout() {
   const navigations = useNavigation();
   const isLoading = navigations.state === "loading";
   return (
-    <div className="layout">
+    <div className="grid bg-red-500 grid-rows-3 h-[500px]">
       {isLoading && <Loader />}
       <Header />
       <main>
