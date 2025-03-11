@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom"
 
-function Button({children,disabled,to}) {
-    const classname="iniline-block bg-yellow-400 py-4 px-3 uppercase tracking-wide font-semibold text-stone-800 rounded-full hover:bg-yellow-300 transition-colors duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed focus:bg-yellow-300 sm:px-6 sm:py-4";
+function Button({children,disabled,to,type}) {
+    
+
+    const base="iniline-block bg-yellow-400 uppercase tracking-wide font-semibold text-stone-800 rounded-full hover:bg-yellow-300 transition-colors duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed focus:bg-yellow-300 ";
+
+    const styles={
+        primary:base+" py-4 px-3 md:px-6 md:py-4",
+        small:base+" py-2 px-3 md:px-4 md:py-2 text-x5",
+        secondary:"iniline-block border-2 border-stone-300 hover:text-stone-800 uppercase tracking-wide font-semibold text-stone-400 rounded-full hover:bg-stone-300 transition-colors duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed focus:bg-stone-300 py-2.5 px-3 md:px-6 md:py-3.5"
+    }
     if(to){
-        return <Link className={classname} to={to}>{children}</Link>
+        return <Link className={styles[type]} to={to}>{children}</Link>
     }
     return (
-        <button disabled={disabled} className={classname}>
+        <button disabled={disabled} className={styles[type]}>
             {children}
         </button>
     )
