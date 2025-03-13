@@ -3,6 +3,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentQuantityById } from "../cart/CartSlice";
 import DeleteItem from "../cart/DeleteItem";
+import UpdateCart from "../cart/UpdateCart";
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const currentQuantity=useSelector(getCurrentQuantityById(id))
@@ -26,7 +27,7 @@ function MenuItem({ pizza }) {
         <p className="text-sm italic text-stone-500">{ingredients.join(", ")}</p>
         <div className="mt-auto flex justify-between items-center">
           {!soldOut ? <p className="text-sm">{formatCurrency(unitPrice)}</p> : <p className="text-sm uppercase font-medium text-stone-500">Sold out</p>}
-          {isInCart && <DeleteItem pizzaId={id}/>}
+          {isInCart && <div className="flex items-center gap-3 sm:gap-8"> <UpdateCart pizzaId={id} currentQuantity={currentQuantity} /> <DeleteItem pizzaId={id}/></div>}
           {!soldOut && !isInCart && <Button onClick={handleAddToCart} type="small">Add To Cart</Button>}
         </div>
       </div>
