@@ -1,5 +1,6 @@
 import { formatCurrency } from "../../utils/helpers";
 import {  useSelector } from "react-redux";
+
 import DeleteItem from "./DeleteItem";
 import UpdateCart from "./UpdateCart"
 import { getCurrentQuantityById } from "./CartSlice";
